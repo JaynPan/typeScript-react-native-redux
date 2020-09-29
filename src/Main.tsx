@@ -3,8 +3,8 @@ import React, { FC, useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Image } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { RootStore } from './store';
-import { GetPokemon } from './store/actions/PokemonActions';
+import { RootStore } from '@/store';
+import { GetPokemon } from '@/store/actions/PokemonActions';
 
 const styles = StyleSheet.create({
   container: {

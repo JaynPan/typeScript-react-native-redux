@@ -4,7 +4,7 @@ import {
   POKEMON_SUCCESS,
   PokemonDispatchTypes,
   PokemonType,
-} from '../actions/PokemonActionTypes';
+} from '@/store/actions/PokemonActionTypes';
 
 interface DefaultStateI {
   loading: boolean;

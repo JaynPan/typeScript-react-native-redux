@@ -29,6 +29,14 @@
       {
         "avoidEscape": true
       }
-    ]
+    ],
+    "import/order": ["error", {
+      "pathGroups": [
+        {
+          "pattern": "@/**",
+          "group": "internal"
+        }
+      ]
+    }]
   }
 }

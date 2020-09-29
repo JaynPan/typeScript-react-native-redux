@@ -14,6 +14,8 @@
     }
   },
   "rules": {
+    // disable the indent rule as it can cause conflict with prettier
+    "indent": "off",
     "prettier/prettier": [
       "error",
       {
@@ -27,7 +29,6 @@
       {
         "avoidEscape": true
       }
-    ],
-    "indent": ["error", 2]
+    ]
   }
 }

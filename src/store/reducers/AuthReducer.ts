@@ -1,15 +1,18 @@
 import {
   AuthDispatchTypes,
+  UserInfo,
   AUTH_FAIL,
   AUTH_LOADING,
   AUTH_SUCCESS,
-  UserInfo,
+  LOGOUT_SUCCESS,
+  USER_INFO_SUCCESS,
 } from '@/store/actions/AuthActionTypes';
 
 interface AuthState {
   isAuth: boolean;
   loading: boolean;
   user: UserInfo;
+  uid: string | null;
 }
 
 const defaultState: AuthState = {
@@ -21,6 +24,7 @@ const defaultState: AuthState = {
     email: '',
     profilePicture: '',
   },
+  uid: null,
 };
 
 const authReducer = (
@@ -38,12 +42,24 @@ const authReducer = (
         ...state,
         loading: false,
         isAuth: true,
-        user: action.payload.data,
+        uid: action.payload.uid,
       };
     case AUTH_LOADING:
       return {
         ...state,
         loading: true,
+      };
+    case LOGOUT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        isAuth: false,
+        user: defaultState.user,
+      };
+    case USER_INFO_SUCCESS:
+      return {
+        ...state,
+        user: action.payload.data,
       };
     default:
       return state;

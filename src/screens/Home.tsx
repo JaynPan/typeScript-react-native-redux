@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Center from '@/components/Center';
 import { AppNavProps } from '@/navigations/AppParamList';
-import { getUserData } from '@/store/actions/AuthActions';
+import { getUserData } from '@/store/auth/actionCreator';
 import { RootStore } from '@/store';
 
 const Home: FC<AppNavProps<'Home'>> = () => {

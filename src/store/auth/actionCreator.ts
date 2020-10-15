@@ -9,7 +9,7 @@ import {
   UserInfo,
   LOGOUT_SUCCESS,
   USER_INFO_SUCCESS,
-} from './AuthActionTypes';
+} from './actionTypes';
 
 export const checkAuthState = () => async (
   dispatch: Dispatch<AuthDispatchTypes>,

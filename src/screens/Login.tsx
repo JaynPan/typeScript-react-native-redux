@@ -3,7 +3,7 @@ import { View, Text, Button } from 'react-native';
 import { useDispatch } from 'react-redux';
 
 import { AuthNavProps } from '@/navigations/AuthParamList';
-import { signInWithEmailPassword } from '@/store/actions/AuthActions';
+import { signInWithEmailPassword } from '@/store/auth/actionCreator';
 
 const Login: FC<AuthNavProps<'Login'>> = ({ navigation }) => {
   const dispatch = useDispatch();

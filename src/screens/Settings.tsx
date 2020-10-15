@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import Center from '@/components/Center';
 import { AppNavProps } from '@/navigations/AppParamList';
-import { logout } from '@/store/actions/AuthActions';
+import { logout } from '@/store/auth/actionCreator';
 
 const Settings: FC<AppNavProps<'Settings'>> = () => {
   const dispatch = useDispatch();

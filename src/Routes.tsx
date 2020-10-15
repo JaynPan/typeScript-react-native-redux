@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import AuthStack from '@/navigations/AuthStack';
 import AppTabs from '@/navigations/AppTabs';
 import { RootStore } from '@/store';
-import { checkAuthState } from '@/store/actions/AuthActions';
+import { checkAuthState } from '@/store/auth/actionCreator';
 import Center from '@/components/Center';
 
 const Routes: FC = () => {

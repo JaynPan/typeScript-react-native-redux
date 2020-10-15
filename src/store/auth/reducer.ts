@@ -6,7 +6,7 @@ import {
   AUTH_SUCCESS,
   LOGOUT_SUCCESS,
   USER_INFO_SUCCESS,
-} from '@/store/actions/AuthActionTypes';
+} from '@/store/auth/actionTypes';
 
 interface AuthState {
   isAuth: boolean;

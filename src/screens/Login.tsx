@@ -44,6 +44,10 @@ const Login: FC<AuthNavProps<'Login'>> = ({ navigation }) => {
           onChangeText={(val: string) => setPassword(val)}
         />
         <Button onPress={toggleLogin} title="login" />
+        <Button
+          onPress={() => navigation.navigate('Register')}
+          title="註冊帳戶"
+        />
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>
   );

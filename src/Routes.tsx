@@ -8,16 +8,17 @@ import AppTabs from '@/navigations/AppTabs';
 import { RootStore } from '@/store';
 import { checkAuthState } from '@/store/auth/thunk';
 import Center from '@/components/Center';
+import { navigationRef } from '@/utils/RootNavigations';
 
 const Routes: FC = () => {
-  const { isAuth, loading } = useSelector((state: RootStore) => state.auth);
+  const { isAuth, authLoading } = useSelector((state: RootStore) => state.auth);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(checkAuthState());
   }, []);
 
-  if (loading) {
+  if (authLoading) {
     return (
       <Center>
         <ActivityIndicator size="large" />
@@ -26,7 +27,7 @@ const Routes: FC = () => {
   }
 
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef}>
       {isAuth ? <AppTabs /> : <AuthStack />}
     </NavigationContainer>
   );

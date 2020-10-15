@@ -6,6 +6,9 @@ import {
   UserInfo,
   LOGOUT_SUCCESS,
   FETCH_USER_INFO_SUCCESS,
+  SIGNUP_EMAIL_PWD_FAIL,
+  SIGNUP_EMAIL_PWD_LOADING,
+  SIGNUP_EMAIL_PWD_SUCCESS,
 } from './types';
 
 export const authSuccess = (uid: string): AuthActionTypes => {
@@ -37,5 +40,24 @@ export const fetchUserInfoSuccess = (data: UserInfo): AuthActionTypes => {
 export const logout = (): AuthActionTypes => {
   return {
     type: LOGOUT_SUCCESS,
+  };
+};
+
+export const signUpLoading = (): AuthActionTypes => {
+  return {
+    type: SIGNUP_EMAIL_PWD_LOADING,
+  };
+};
+
+export const signUpFail = (message: string): AuthActionTypes => {
+  return {
+    type: SIGNUP_EMAIL_PWD_FAIL,
+    payload: { message },
+  };
+};
+
+export const signUpSuccess = (): AuthActionTypes => {
+  return {
+    type: SIGNUP_EMAIL_PWD_SUCCESS,
   };
 };

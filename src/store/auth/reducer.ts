@@ -6,18 +6,26 @@ import {
   AUTH_SUCCESS,
   LOGOUT_SUCCESS,
   FETCH_USER_INFO_SUCCESS,
+  SIGNUP_EMAIL_PWD_LOADING,
+  SIGNUP_EMAIL_PWD_SUCCESS,
+  SignupEMailPwdFail,
+  SIGNUP_EMAIL_PWD_FAIL,
 } from '@/store/auth/types';
 
 interface AuthState {
   isAuth: boolean;
-  loading: boolean;
+  authLoading: boolean;
+  signUpLoading: boolean;
+  signUpFailMsg: string | null;
   user: UserInfo;
   uid: string | null;
 }
 
 const defaultState: AuthState = {
   isAuth: false,
-  loading: false,
+  authLoading: false,
+  signUpLoading: false,
+  signUpFailMsg: null,
   user: {
     firstname: '',
     lastname: '',
@@ -35,24 +43,24 @@ const authReducer = (
     case AUTH_FAIL:
       return {
         ...state,
-        loading: false,
+        authLoading: false,
       };
     case AUTH_SUCCESS:
       return {
         ...state,
-        loading: false,
+        authLoading: false,
         isAuth: true,
         uid: action.payload.uid,
       };
     case AUTH_LOADING:
       return {
         ...state,
-        loading: true,
+        authLoading: true,
       };
     case LOGOUT_SUCCESS:
       return {
         ...state,
-        loading: false,
+        authLoading: false,
         isAuth: false,
         user: defaultState.user,
       };
@@ -60,6 +68,23 @@ const authReducer = (
       return {
         ...state,
         user: action.payload.data,
+      };
+    case SIGNUP_EMAIL_PWD_LOADING:
+      return {
+        ...state,
+        signUpLoading: true,
+        signUpFailMsg: null,
+      };
+    case SIGNUP_EMAIL_PWD_SUCCESS:
+      return {
+        ...state,
+        signUpLoading: false,
+      };
+    case SIGNUP_EMAIL_PWD_FAIL:
+      return {
+        ...state,
+        signUpFailMsg: action.payload.message,
+        signUpLoading: false,
       };
     default:
       return state;

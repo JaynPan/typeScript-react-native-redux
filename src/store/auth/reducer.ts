@@ -1,12 +1,12 @@
 import {
-  AuthDispatchTypes,
+  AuthActionTypes,
   UserInfo,
   AUTH_FAIL,
   AUTH_LOADING,
   AUTH_SUCCESS,
   LOGOUT_SUCCESS,
-  USER_INFO_SUCCESS,
-} from '@/store/auth/actionTypes';
+  FETCH_USER_INFO_SUCCESS,
+} from '@/store/auth/types';
 
 interface AuthState {
   isAuth: boolean;
@@ -29,7 +29,7 @@ const defaultState: AuthState = {
 
 const authReducer = (
   state: AuthState = defaultState,
-  action: AuthDispatchTypes,
+  action: AuthActionTypes,
 ): AuthState => {
   switch (action.type) {
     case AUTH_FAIL:
@@ -56,7 +56,7 @@ const authReducer = (
         isAuth: false,
         user: defaultState.user,
       };
-    case USER_INFO_SUCCESS:
+    case FETCH_USER_INFO_SUCCESS:
       return {
         ...state,
         user: action.payload.data,

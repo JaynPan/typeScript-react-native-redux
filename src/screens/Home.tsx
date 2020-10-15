@@ -1,21 +1,13 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import { Text } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import Center from '@/components/Center';
 import { AppNavProps } from '@/navigations/AppParamList';
-import { getUserData } from '@/store/auth/actionCreator';
 import { RootStore } from '@/store';
 
 const Home: FC<AppNavProps<'Home'>> = () => {
-  const dispatch = useDispatch();
-  const { uid, user } = useSelector((state: RootStore) => state.auth);
-
-  useEffect(() => {
-    if (uid) {
-      dispatch(getUserData(uid));
-    }
-  }, []);
+  const { user } = useSelector((state: RootStore) => state.auth);
 
   return (
     <Center>

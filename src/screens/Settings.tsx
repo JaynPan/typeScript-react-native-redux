@@ -4,19 +4,15 @@ import { useDispatch } from 'react-redux';
 
 import Center from '@/components/Center';
 import { AppNavProps } from '@/navigations/AppParamList';
-import { logout } from '@/store/auth/actionCreator';
+import { thunkLogout as logout } from '@/store/auth/thunk';
 
 const Settings: FC<AppNavProps<'Settings'>> = () => {
   const dispatch = useDispatch();
 
-  const handleLogout = () => {
-    dispatch(logout());
-  };
-
   return (
     <Center>
       <Text>Settings</Text>
-      <Button onPress={handleLogout} title="logout" />
+      <Button onPress={() => dispatch(logout())} title="logout" />
     </Center>
   );
 };

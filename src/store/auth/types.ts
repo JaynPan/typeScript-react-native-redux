@@ -2,7 +2,7 @@ export const AUTH_FAIL = 'AUTH_FAIL';
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const AUTH_LOADING = 'AUTH_LOADING';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
-export const USER_INFO_SUCCESS = 'USER_INFO_SUCCESS';
+export const FETCH_USER_INFO_SUCCESS = 'FETCH_USER_INFO_SUCCESS';
 
 export type UserInfo = {
   firstname: string;
@@ -29,11 +29,11 @@ export interface LogoutSuccess {
 }
 
 export interface UserInfoSuccess {
-  type: typeof USER_INFO_SUCCESS;
+  type: typeof FETCH_USER_INFO_SUCCESS;
   payload: { data: UserInfo };
 }
 
-export type AuthDispatchTypes =
+export type AuthActionTypes =
   | AuthFail
   | AuthLoading
   | AuthSuccess
